@@ -13,7 +13,6 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
     // Find the closest nodes to the starting and ending coordinates.
     start_node = &m_Model.FindClosestNode(start_x, start_y);
     end_node = &m_Model.FindClosestNode(end_x, end_y);
-
 }
 
 
@@ -31,8 +30,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
         neighbor->h_value = CalculateHValue(neighbor);
         neighbor->g_value = current_node->g_value + current_node->distance(*neighbor);
         neighbor->visited = true;
-        open_list.push_back(neighbor);
-        
+        open_list.push_back(neighbor); 
     }
 }
 
@@ -67,7 +65,6 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     // Multiply the distance by the scale of the map to get meters.
     distance *= m_Model.MetricScale(); 
     return path_found;
-
 }
 
 
