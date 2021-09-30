@@ -71,7 +71,6 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
 }
 
 
-
 void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node; 
     start_node->visited = true;
